@@ -1,5 +1,20 @@
 from django.db import models
 
+
+class BookInfo(models.Model):
+    bname = models.CharField(max_length=20)
+    bpub_date = models.DateTimeField(auto_now_add=True)
+
+
+class HeroInfo(models.Model):
+    hname = models.CharField(max_length=20)
+    hgender = models.BooleanField()
+    hcontent = models.CharField(max_length=100)
+    # 外键 第一个参数为表名 第二个参数代表删除类型
+    hbook = models.ForeignKey('BookInfo', on_delete=models.CASCADE)
+
+
+
 # Create your models here.
 
 '''
