@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细信息</title>
+</head>
+<body>
+    <h2>角色及简介</h2>
+    <ul>
+        <li>
+            <h4>人物：{{roles}}</h4>
+        </li>
+        <li>
+            {% if roles.hgender %}
+                <h4>性别：男</h4>
+            {% else %}
+                <h4>性别：女</h4>
+            {% endif %}
+        </li>
+        <li>
+            <h4>描述：{{roles.hcontent}}</h4>
+        </li>
+        <li>
+            <h4>所在书籍：{{roles.hbook}}</h4>
+        </li>
+    </ul>
+    <a href="/booklist/detail">返回详情页</a>
+</body>
+</html>

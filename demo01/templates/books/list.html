@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+</head>
+<body>
+    <ul>
+        <h2>图书列表页</h2>
+        {% for book in books%}
+
+        <li><a href="/booklist/detail/{{book.id}}/">{{book.bname}}</a></li>
+        {% empty %}
+            <h2>这里还没有图书哦</h2>
+        {% endfor %}
+    </ul>
+    <a href="/booklist/">返回首页</a>
+</body>
+</html>

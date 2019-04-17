@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+    <h2>书名:{{books.bname}}</h2>
+    <ul>
+        <h3>角色及简介</h3>
+        {% for hero in books.heroinfo_set.all %}
+            {{hero.id}}
+            <li><a href="/booklist/infoss/{{hero.id}}">{{hero.hname}}</a>-------------{{hero.hcontent}}</li>
+        {% empty %}
+            <h3>请添加角色</h3>
+        {% endfor %}
+    </ul>
+    <a href="/booklist/list">返回列表页</a>
+</body>
+</html>

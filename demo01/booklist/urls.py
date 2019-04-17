@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^list/$', views.list),
     # url(r'$', views.index),
     url(r'^detail/(\d+)/$', views.detail),
+    url(r'^infoss/(\d+)/$', views.infoss),
 ]
