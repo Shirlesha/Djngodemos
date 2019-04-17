@@ -7,7 +7,9 @@
 <body>
     {% if username %}
         <h2>欢迎您：{{username}}</h2>
-        <a href="/booklist/list/">查看图书列表</a>
+        {#<a href="/booklist/list/">查看图书列表</a>#}
+        <a href="{%url 'booklist:list'%}">查看图书列表</a>
+
     {% else %}
         <h2>请登录</h2>
     {% endif%}

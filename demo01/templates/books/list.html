@@ -9,11 +9,13 @@
         <h2>图书列表页</h2>
         {% for book in books%}
 
-        <li><a href="/booklist/detail/{{book.id}}/">{{book.bname}}</a></li>
+        {#<li><a href="/booklist/detail/{{book.id}}/">{{book.bname}}</a></li>#}
+        <li><a href="{%url 'booklist:detail' book.id%}">{{book.bname}}</a></li>
         {% empty %}
             <h2>这里还没有图书哦</h2>
         {% endfor %}
     </ul>
-    <a href="/booklist/">返回首页</a>
+    {#<a href="/booklist/">返回首页</a>#}
+    <a href="{% url 'booklist:index'%}">返回首页</a>
 </body>
 </html>

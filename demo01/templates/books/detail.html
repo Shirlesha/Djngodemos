@@ -9,12 +9,15 @@
     <ul>
         <h3>角色及简介</h3>
         {% for hero in books.heroinfo_set.all %}
-            {{hero.id}}
-            <li><a href="/booklist/infoss/{{hero.id}}">{{hero.hname}}</a>-------------{{hero.hcontent}}</li>
+            {#<li><a href="/booklist/infoss/{{hero.id}}">{{hero.hname}}</a>-------------{{hero.hcontent}}</li>#}
+            {# 去除硬编码 去除模块硬编码 #}
+            <li><a href="{%url 'booklist:infoss' hero.id%}">{{hero.hname}}</a>-------------{{hero.hcontent}}</li>
+
         {% empty %}
             <h3>请添加角色</h3>
         {% endfor %}
     </ul>
-    <a href="/booklist/list">返回列表页</a>
+    {#<a href="/booklist/list">返回列表页</a>#}
+    <a href="{%url 'booklist:list'%}">返回列表页</a>
 </body>
 </html>
