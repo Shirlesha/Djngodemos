@@ -19,8 +19,18 @@ class HeroInfo(models.Model):
     def __str__(self):
         return self.hname
 
+    def skills(self):
+        return self.hcontent
+
+    skills.short_description = '描述'
+
+    def name(self):
+        return self.hname
+
+    name.short_description = '名称'
 
 
+    # def
 # Create your models here.
 
 '''
