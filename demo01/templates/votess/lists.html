@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题页面</title>
+        <link rel="stylesheet" href="/static/css/models.css">
+</head>
+<body>
+    <div class="container">
+        <h2>请选择您要作答的问题</h2>
+        <ul>
+            {% for list in listss %}
+                <li>
+                    <a href="/votes/ends/{{list.id}}">{{list}}</a>
+                </li>
+            {% empty %}
+                <h4>咦，这里居然没有问题</h4>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # 去除硬编码 在项目的urls.py中指定应用的命名空间 与app_name中的名称一致
     url('booklist/', include('booklist.urls', namespace="booklist")),
+    url('votes/', include('votes.urls')),
 ]
 
 

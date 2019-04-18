@@ -54,10 +54,15 @@ def infoss(request, id):
 def add(request):
     # BookInfo.add_to_class(bookname)
     # return HttpResponse("添加成功")
-    # books = request.POST['bookname']
-    # print(books)
+    books = request.POST['bookname']
+    return HttpResponse("添加成功")
 
-    return render(request, template_name='books/list.html', context={'books': BookInfo.objects.all()})
+    print(books)
+    # book = BookInfo()
+    #     # book.bname = books
+    #     # book.bpub_date = datetime.datetime
+    #     # print(book.bpub_date)
+    return render(request, template_name='books/add.html', context={'books': BookInfo.objects.all()})
 
 
 def delete(request, id):

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票页面</title>
+    <link rel="stylesheet" href="/static/css/models.css">
+</head>
+<body>
+    <div class="container">
+        <h2>请做出您的选择：</h2>
+        <h3>{{endss.qcontain}}</h3>
+        <ul>
+            <form action="/votes/counts/{{endss.id}}/" method="POST">
+                {% for answers in endss.choices_set.all %}
+
+                    <li><input type="radio" name="choo" value="{{answers.id}}">{{answers.cchoose}}</li>
+
+                {% empty %}
+                    <h4>没有选项</h4>
+                {% endfor %}
+                <input type="submit" value="确定">
+            </form>
+        </ul>
+        <a href="/votes">返回问题列表</a>
+    </div>
+</body>
+</html>

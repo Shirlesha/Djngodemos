@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结果页面</title>
+    <link rel="stylesheet" href="/static/css/models.css">
+</head>
+<body>
+    <div class="container">
+        <h2>投票结果</h2>
+        <h3>{{endss.qcontain}}</h3>
+        <ul>
+            {% for answers in endss.choices_set.all %}
+                <li>{{answers.cchoose}} --&nbsp; &nbsp;-->{{answers.ccount}}票</li>
+            {% empty %}
+                <h4>没有选项</h4>
+            {% endfor %}
+        </ul>
+        <a href="/votes">返回问题列表</a>
+    </div>
+</body>
+</html>
