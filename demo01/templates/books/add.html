@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加书籍</title>
+    {# 解除硬编码 #}
+    {% load static from staticfiles %}
+    {#<link rel="stylesheet" href="/static/css/models.css">#}
+    <link rel="stylesheet" href="{% static '/css/models.css'%}">
+</head>
+<body>
+    <div class="container">
+        <form action="{% url 'booklist:add' %}" method="POST">
+        图书名字：<input name="bookname" value="" type="text" placeholder="请输入您要添加的书名"><br>
+        <input type="submit" value="添加">
+    </form>
+    </div>
+</body>
+</html>

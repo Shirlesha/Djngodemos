@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>列表页</title>
+
+   {# 解除硬编码 #}
+    {% load static from staticfiles %}
+    {#<link rel="stylesheet" href="/static/css/models.css">#}
+    <link rel="stylesheet" href="{% static '/css/models.css'%}">
+
 </head>
 <body>
-    <ul>
-        <h2>图书列表页</h2>
-        {% for book in books%}
+    <div class="container">
+        <ul>
+            <h2>图书列表页</h2>
+            {% for book in books%}
 
-        {#<li><a href="/booklist/detail/{{book.id}}/">{{book.bname}}</a></li>#}
-        <li><a href="{%url 'booklist:detail' book.id%}">{{book.bname}}</a></li>
-        {% empty %}
-            <h2>这里还没有图书哦</h2>
-        {% endfor %}
-    </ul>
-    {#<a href="/booklist/">返回首页</a>#}
-    <a href="{% url 'booklist:index'%}">返回首页</a>
+            {#<li><a href="/booklist/detail/{{book.id}}/">{{book.bname}}</a></li>#}
+            <li><a href="{%url 'booklist:detail' book.id%}">{{book.bname}}</a><a href="{%url 'booklist:delete' book.id%}">删除书籍</a>
+            </li>
+            {% empty %}
+                <h2>这里还没有图书哦</h2>
+            {% endfor %}
+        </ul>
+        <a href="{%url 'booklist:add' %}">添加书籍</a>
+        {#<a href="/booklist/">返回首页</a>#}
+        <a href="{% url 'booklist:index'%}">返回首页</a>
+    </div>
 </body>
 </html>

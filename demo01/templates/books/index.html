@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    {# 解除硬编码 #}
+    {% load static from staticfiles %}
+    {#<link rel="stylesheet" href="/static/css/models.css">#}
+    <link rel="stylesheet" href="{% static '/css/models.css'%}">
+
 </head>
 <body>
-    {% if username %}
+    <div class="container">
+        
+        {% if username %}
         <h2>欢迎您：{{username}}</h2>
         {#<a href="/booklist/list/">查看图书列表</a>#}
         <a href="{%url 'booklist:list'%}">查看图书列表</a>
+        {#<img src="/static/images/c5.jpg" alt="">#}
+        <img src="{% static '/images/c5.jpg'%}" alt="">
 
-    {% else %}
-        <h2>请登录</h2>
-    {% endif%}
+        {% else %}
+            <h2>请登录</h2>
+        {% endif%}
+    </div>
 </body>
 </html>

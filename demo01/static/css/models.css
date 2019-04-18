@@ -1,0 +1,12 @@
+div.container{
+    background-color: antiquewhite;
+    width: 1200px;
+}
+ul{
+    list-style: none;
+    color: darkgreen;
+}
+a{
+    text-decoration: none;
+    color: green;
+}

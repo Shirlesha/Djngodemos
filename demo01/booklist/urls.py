@@ -13,4 +13,6 @@ urlpatterns = [
     # url(r'$', views.index),
     url(r'^bookdetail/(\d+)/$', views.detail, name='detail'),
     url(r'^bookinfoss/(\d+)/$', views.infoss, name='infoss'),
+    url(r'^add/$', views.add, name='add'),
+    url(r'^delete/(\d+)/$', views.delete, name='delete'),
 ]

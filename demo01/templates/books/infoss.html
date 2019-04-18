@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>详细信息</title>
+    {% load static from staticfiles%}
+    {#<link rel="stylesheet" href="/static/css/models.css">#}
+    <link rel="stylesheet" href="{% static '/css/models.css'%}">
 </head>
 <body>
-    <h2>角色及简介</h2>
-    <ul>
-        <li>
-            <h4>人物：{{roles}}</h4>
-        </li>
-        <li>
-            {% if roles.hgender %}
-                <h4>性别：男</h4>
-            {% else %}
-                <h4>性别：女</h4>
-            {% endif %}
-        </li>
-        <li>
-            <h4>描述：{{roles.hcontent}}</h4>
-        </li>
-        <li>
-            <h4>所在书籍：{{roles.hbook}}</h4>
-        </li>
-    </ul>
-    <a href="{% url 'booklist:list'%}">返回列表页</a>
+    <div class="container">
+        <h2>角色及简介</h2>
+        <ul>
+            <li>
+                <h4>人物：{{roles}}</h4>
+            </li>
+            <li>
+                {% if roles.hgender %}
+                    <h4>性别：男</h4>
+                {% else %}
+                    <h4>性别：女</h4>
+                {% endif %}
+            </li>
+            <li>
+                <h4>描述：{{roles.hcontent}}</h4>
+            </li>
+            <li>
+                <h4>所在书籍：{{roles.hbook}}</h4>
+            </li>
+        </ul>
+        <a href="{% url 'booklist:list'%}">返回列表页</a>
+    </div>
 </body>
 </html>

@@ -1,8 +1,9 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from .models import BookInfo, HeroInfo
-from django.template import loader
-from django.shortcuts import render
+
+
 # Create your views here.
 
 # 定义视图函数
@@ -48,6 +49,32 @@ def detail(request, id):
 def infoss(request, id):
     roles = HeroInfo.objects.get(pk=id)
     return render(request, template_name='books/infoss.html', context={'roles': roles})
+
+
+def add(request):
+    # BookInfo.add_to_class(bookname)
+    # return HttpResponse("添加成功")
+    # books = request.POST['bookname']
+    # print(books)
+
+    return render(request, template_name='books/list.html', context={'books': BookInfo.objects.all()})
+
+
+def delete(request, id):
+    # print(BookInfo.objects.get(pk=id))
+    # BookInfo.objects.get(pk=id).delete()
+    # return HttpResponseRedirect('books/list.html', {'books': BookInfo.objects.all()})
+    # # return render(request, template_name='books/list.html', context={'books': BookInfo.objects.all()})
+    try:
+        BookInfo.objects.get(pk=id).delete()
+        bl = BookInfo.objects.all()
+        # 使用render没有刷新请求url
+        # return render(request, 'booktest/list.html', {"booklist": bl})
+        # 重新向服务器发起请求 刷新url
+        # 这里不知道为什么不可以去除硬编码
+        return HttpResponseRedirect('/booklist/booklist/', {"booklist": bl})
+    except:
+        return HttpResponse("删除失败")
 
 '''
 视图函数
